@@ -90,6 +90,20 @@ export const constantRoutes = [
   },
 
   {
+    path: '/demand',
+    component: Layout,
+    children: [
+      {
+        path: 'demand',
+        name: 'Demend',
+        component: () => import('@/views/demand/index'),
+        meta: { title: '采购需求', icon: 'form' }
+      }
+    ]
+  },
+
+
+  {
     path: '/form',
     component: Layout,
     children: [
