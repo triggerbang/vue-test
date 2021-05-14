@@ -13,6 +13,7 @@
 
 <script>
 import { Navbar, Sidebar, AppMain } from './components'
+// 引入了components组件
 import ResizeMixin from './mixin/ResizeHandler'
 
 export default {

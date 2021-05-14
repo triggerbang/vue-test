@@ -43,7 +43,6 @@
 
       <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;" @click.native.prevent="handleLogin">Login</el-button>
 
-
     </el-form>
   </div>
 </template>
@@ -103,7 +102,7 @@ export default {
     },
     handleLogin() {
       this.$refs.loginForm.validate(valid => {
-        //element表单验证
+        // element表单验证
         if (valid) {
           this.loading = true
           this.$store.dispatch('user/login', this.loginForm).then(() => {

@@ -36,7 +36,21 @@ module.exports = {
       warnings: false,
       errors: true
     },
-    before: require('./mock/mock-server.js')
+    before: require('./mock/mock-server.js'),
+    //设置代理服务器，避免跨域问题
+    proxy:{
+      //VUE_APP_BASE_API是 根目录下.env.development文件中的值，这个文件也就是开发环境的env
+      [process.env.VUE_APP_BASE_API]:{
+        //目标服务器地址（测试）
+        target:'https://mock.mengxuegu.com/mock/6063d952f2e38f3a2f6ba42f/xzec',
+        //是否跨域，设置为true 直接访问上方的target地址
+        changeOrigin: true,
+        //匹配process.env.VUE_APP_BASE_API 然后替换成空，因为地址没有带着 /dve-api 所以要把它去掉。
+        pathRewrite: {
+          [ '^' + process.env.VUE_APP_BASE_API]: ''
+        }
+      }
+    }
   },
   configureWebpack: {
     // provide the app's title in webpack's name field, so that
