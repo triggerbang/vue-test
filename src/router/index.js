@@ -76,31 +76,7 @@ export const constantRoutes = [
       }
     ]
   },
-  {
-    path: '/test',
-    component: Layout,
-    children: [
-      {
-        path: 'test',
-        name: 'Test',
-        component: () => import('@/views/test/index'),
-        meta: { title: '练习', icon: 'form' }
-      }
-    ]
-  },
-
-  {
-    path: '/demand',
-    component: Layout,
-    children: [
-      {
-        path: 'demand',
-        name: 'Demend',
-        component: () => import('@/views/demand/index'),
-        meta: { title: '采购需求', icon: 'form' }
-      }
-    ]
-  },
+ 
 
   {
     path: '/form',
@@ -121,7 +97,72 @@ export const constantRoutes = [
  * the routes that need to be dynamically loaded based on user roles
  */
 export const asyncRoutes = [
+  //供应商管理   Supplier management
   {
+    path: '/supplier',
+    component: Layout,
+    children: [
+      {
+        path: 'index',
+        name: 'Supplier',
+        component: () => import('@/views/supplier/index'),
+        meta: { title: '供应商管理', icon: 'supplier' }
+      }
+    ]
+  },
+  //采购计划管理  Purchasing plan management
+  {
+    path: '/plan',
+    component: Layout,
+    children: [
+      {
+        path: 'index',
+        name: 'Plan',
+        component: () => import('@/views/plan/index'),
+        meta: { title: '采购计划管理', icon: 'purchase' }
+      }
+    ]
+  },
+//采购招标管理  Procurement bidding management
+{
+  path: '/procurement',
+  component: Layout,
+  children: [
+    {
+      path: 'index',
+      name: 'Procurement',
+      component: () => import('@/views/procurement/index'),
+      meta: { title: '采购招标管理', icon: 'procurement' }
+    }
+  ]
+},
+//采购合同管理  Purchasing contract management
+  {
+    path: '/contract',
+    component: Layout,
+    children: [
+      {
+        path: 'index',
+        name: 'Contract',
+        component: () => import('@/views/contract/index'),
+        meta: { title: '采购合同管理', icon: 'contract' }
+      }
+    ]
+  },
+  //采购订单管理   Purchase order management
+  {
+    path: '/order',
+    component: Layout,
+    children: [
+      {
+        path: 'index',
+        name: 'Order',
+        component: () => import('@/views/order/index'),
+        meta: { title: '采购订单管理', icon: 'order' }
+      }
+    ]
+  },
+    {
     path: '/nested',
     component: Layout,
     redirect: '/nested/menu1',
